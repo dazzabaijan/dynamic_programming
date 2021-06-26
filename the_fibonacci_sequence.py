@@ -1,3 +1,4 @@
+from functools import lru_cache
 import inspect
 
 
@@ -54,3 +55,27 @@ def fibonacci_3(n: int) -> int:
         fibonacci_3.cache[n] = fibonacci_3(n - 1) + fibonacci_3(n - 2)
 
     return fibonacci_3.cache[n]
+
+
+def cached(f):
+    cache = {}
+
+    def worker(*args):
+        if args not in cache:
+            cache[args] = f(*args)
+        return cache[args]
+    return worker
+
+
+@cached
+def fibonacci(n):
+    if n <= 2:
+        return 1
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+@lru_cache(maxsize=None)
+def fibonacci(n):
+    if n <= 2:
+        return 1
+    return fibonacci(n - 1) + fibonacci(n - 2)
