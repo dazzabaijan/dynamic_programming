@@ -79,3 +79,26 @@ def fibonacci(n):
     if n <= 2:
         return 1
     return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+def fibonacci(n):
+    """
+    Bottom-up approach
+    """
+
+    series = [1, 1]
+    while len(series) < n:
+        series.append(series[-1] + series[-2])
+    return series[-1]
+
+
+def fibonacci(n):
+    """
+    Bottom-up approach 2
+    """
+    previous = 1
+    current = 1
+    for i in range(n - 2):
+        next = current + previous
+        previous, current = current, next
+    return current
