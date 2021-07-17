@@ -24,8 +24,6 @@ def fibonacci_1(n: int) -> int:
 fibonacci_1(6)
 
 fibonacci_cache = {}
-
-
 def fibonacci_2(n: int) -> int:
     """
     Top down approach, O(n) linear time. Uses a global variable
@@ -58,6 +56,9 @@ def fibonacci_3(n: int) -> int:
 
 
 def cached(f):
+    """
+    A custom decorator that performs caching .
+    """
     cache = {}
 
     def worker(*args):
@@ -76,6 +77,13 @@ def fibonacci(n):
 
 @lru_cache(maxsize=None)
 def fibonacci(n):
+    """
+    Use the Least Recently Used caching by Python instead
+    By default it's limited to 128 entries, with least-recently
+    used entries evicted when limit is hit.
+    Passing maxsize=None to lru_cache ensures that there
+    is no memory limit and all values are cached.
+    """
     if n <= 2:
         return 1
     return fibonacci(n - 1) + fibonacci(n - 2)
@@ -83,7 +91,10 @@ def fibonacci(n):
 
 def fibonacci(n):
     """
-    Bottom-up approach
+    Bottom-up approach, O(n) time and space complexity.
+    Computes iteratively from smaller numbers.
+    In practice performance is better than recursive method
+    due to the lack of overhead in extra function calls.
     """
 
     series = [1, 1]
@@ -94,7 +105,11 @@ def fibonacci(n):
 
 def fibonacci(n):
     """
-    Bottom-up approach 2
+    Bottom-up approach 2, O(n) time but O(1) space complexity
+    Only stores the last two number instead of the entire sequence
+    Starts from the smallest subproblem (the first two numbers
+    in the sequence), then expands the solution to reach the original
+    problem (the n-th number in the sequence).
     """
     previous = 1
     current = 1
