@@ -17,12 +17,12 @@ This repo contains solutions to the all interesting dynamic programming question
   <summary><b>3) Integer Break</b></summary>
   Given an integer n, break it into the sum of k positive integers, where k >= 2, and maximise the product of those integers. Return the maximum product you can get.<br>
   <br>
-  Example 1:<br>
+  <b>Example 1:</b><br>
     Input: n = 2<br>
   Output: 1<br>
   Explanation: 2 = 1 + 1, 1 * 1 = 1.<br>
   <br>
-  Example 2:<br>
+  <b>Example 2:</b><br>
   Input: n = 10<br>
   Output: 36<br>
   Explanation: 10 = 3 + 3 + 4, 3 * 3 * 4 = 36.
