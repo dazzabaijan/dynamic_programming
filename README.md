@@ -18,7 +18,7 @@ This repo contains solutions to the all interesting dynamic programming question
   Given an integer n, break it into the sum of k positive integers, where k >= 2, and maximise the product of those integers. Return the maximum product you can get.<br>
   <br>
   Example 1:<br>
-  Input: n = 2<br>
+    Input: n = 2<br>
   Output: 1<br>
   Explanation: 2 = 1 + 1, 1 * 1 = 1.<br>
   <br>
